@@ -166,18 +166,3 @@ Puedes probar los endpoints de la API usando herramientas como [Soap UI](https:/
 
 - **Eliminar un Tópico**:
     - **DELETE** `/topicos/{id}`
-
-## Contribuciones
-
-Las contribuciones son bienvenidas. Si tienes sugerencias o encuentras errores, por favor abre un **issue** o envía un **pull request**.
-
-## Licencia
-
-Este proyecto está licenciado bajo la [Licencia MIT](LICENSE.md).
-
-## Referencias
-
-- [Documentación de Spring Boot](https://spring.io/projects/spring-boot)
-- [Documentación de PostgreSQL](https://www.postgresql.org/docs/)
-- [Flyway Migraciones](https://documentation.red-gate.com/fd/)
-- [Spring Security](https://spring.io/projects/spring-security)
