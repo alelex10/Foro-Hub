@@ -3,9 +3,9 @@
   	<img width="auto" height="auto" src="img/Badge_ForoHub_ONE.png">
 </p>
 
-# ForoHub - Oracle y Alura Challenge
+# ForoHub - Alura Challenge
 
-**ForoHub** es una aplicación web desarrollada en Java con Spring Boot para gestionar tópicos en un foro, una solución para el cuarto desafío de programación de Oracle Next Generation (ONE) de Alura. La aplicación permite a los usuarios autenticados crear, listar, actualizar y eliminar tópicos. Utiliza PostgreSQL como sistema de gestión de bases de datos y está diseñada para seguir buenas prácticas de desarrollo de APIs REST.
+ForoHub es una aplicación web desarrollada en Java utilizando Spring Boot, creada para gestionar tópicos en un foro. Esta solución fue diseñada como respuesta al cuarto desafío de programación de Oracle Next Generation (ONE) de Alura. ForoHub permite a los usuarios autenticados realizar operaciones como crear, listar, actualizar y eliminar tópicos. La aplicación utiliza MySQL como sistema de gestión de bases de datos y sigue las mejores prácticas para el desarrollo de APIs REST.
 
 ## Características
 
@@ -61,7 +61,7 @@ La API utiliza autenticación básica para proteger los endpoints. Asegúrate de
    Crea una base de datos en PostgreSQL y actualiza el archivo `src/main/resources/application.properties` con los detalles de tu base de datos y reemplaza `tu_usuario` y `tu_contraseña` con tus credenciales de PostgreSQL.
 
    ```properties
-   spring.datasource.url=jdbc:postgresql://localhost:5432/forohub
+   spring.datasource.url=jdbc:postgresql://localhost:3306/foro_hub
    spring.datasource.username=tu_usuario
    spring.datasource.password=tu_contraseña
    ```
@@ -91,8 +91,6 @@ Una vez que la aplicación esté en ejecución, puedes interactuar con la API a 
 - **GET** `/api/topics/{id}`: Obtener los detalles de un tópico por ID.
 - **PUT** `/api/topics/{id}`: Actualizar un tópico existente.
 - **DELETE** `/api/topics/{id}`: Eliminar un tópico por ID.
-
-Visita `http://localhost:8080/swagger-ui/` para explorar y probar los endpoints de la API con Swagger UI.
 
 ## Comandos para Probar la API
 
