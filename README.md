@@ -36,45 +36,11 @@ El proyecto está organizado en los siguientes paquetes principales:
 - **service**: Lógica de negocio de la aplicación.
 - **dto**: Clases de transferencia de datos (DTO) para las solicitudes y respuestas de la API.
 
-## Diagrama de Base de Datos
-
-A continuación, se muestra un diagrama sugerido para la base de datos:
-
-<p align="center">
-  	<img width="auto" height="auto" src="img/forohub_db.png">
-</p>
-
->[!NOTE]
-> Este diagrama es una referencia; puedes adaptar la estructura según tus necesidades.
-
 >[!IMPORTANT]
 > ## Migraciones con Flyway
 
 Para gestionar las migraciones de base de datos, Flyway se encarga de aplicar los scripts SQL en orden. Asegúrate de mantener el orden de las migraciones y crear los archivos en el directorio `src/main/resources/db/migration`.
 
-### Comandos Útiles de Flyway
-
-- **Limpiar la Base de Datos**:
-    ```bash
-    mvn flyway:clean
-    ```
-
-- **Aplicar Migraciones**:
-    ```bash
-    mvn flyway:migrate
-    ```
-
-- **Deshacer la Última Migración**:
-    ```bash
-    mvn flyway:undo
-    ```
-
-- **Mostrar el Estado de las Migraciones**:
-    ```bash
-    mvn flyway:info
-    ```
-
->[!NOTE]
 > Si decides cambiar a MySQL, asegúrate de ajustar los scripts SQL para ser compatibles con MySQL y cambiar la URL de conexión en `application.properties`.
 
 ## Autenticación
