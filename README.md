@@ -109,7 +109,7 @@ Puedes probar los endpoints de la API usando herramientas como [Soap UI](https:/
             "curso": "Curso del Tópico"
         }
         ```
-
+<img width="auto" height="auto" src="img/registrar_topico.png">
 - **<p id="listar">Listar Tópicos:</p>**
     - **GET** `/topicos`
 
