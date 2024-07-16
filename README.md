@@ -86,7 +86,7 @@ La API utiliza autenticación básica para proteger los endpoints. Asegúrate de
 
 Una vez que la aplicación esté en ejecución, puedes interactuar con la API a través de los siguientes endpoints:
 
-- **POST** `/api/topics`: Crear un nuevo tópico.
+- **<a href="#gestion">POST</a>** `/api/topics`: Crear un nuevo tópico.
 - **GET** `/api/topics`: Listar todos los tópicos.
 - **GET** `/api/topics/{id}`: Obtener los detalles de un tópico por ID.
 - **PUT** `/api/topics/{id}`: Actualizar un tópico existente.
@@ -98,7 +98,7 @@ Puedes probar los endpoints de la API usando herramientas como [Soap UI](https:/
 
 ### Ejemplos de Endpoints
 
-- **Registrar un Tópico**:
+- **<p id="gestion">Registrar un Tópico</p>**:
     - **POST** `/topicos`
     - **Body**:
         ```json
