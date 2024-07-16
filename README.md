@@ -87,10 +87,10 @@ La API utiliza autenticación básica para proteger los endpoints. Asegúrate de
 Una vez que la aplicación esté en ejecución, puedes interactuar con la API a través de los siguientes endpoints:
 
 - **<a href="#gestion">POST</a>** `/api/topics`: Crear un nuevo tópico.
-- **GET** `/api/topics`: Listar todos los tópicos.
-- **GET** `/api/topics/{id}`: Obtener los detalles de un tópico por ID.
-- **PUT** `/api/topics/{id}`: Actualizar un tópico existente.
-- **DELETE** `/api/topics/{id}`: Eliminar un tópico por ID.
+- **<a href="#listar">GET</a>** `/api/topics`: Listar todos los tópicos.
+- **<a href="#detalle">GET</a>** `/api/topics/{id}`: Obtener los detalles de un tópico por ID.
+- **<a href="#actualizar">PUT</a>** `/api/topics/{id}`: Actualizar un tópico existente.
+- **<a href="#eliminar">DELETE</a>** `/api/topics/{id}`: Eliminar un tópico por ID.
 
 ## Comandos para Probar la API
 
@@ -98,7 +98,7 @@ Puedes probar los endpoints de la API usando herramientas como [Soap UI](https:/
 
 ### Ejemplos de Endpoints
 
-- **<p id="gestion">Registrar un Tópico</p>**:
+- **<p id="gestion">Registrar un Tópico:</p>**
     - **POST** `/topicos`
     - **Body**:
         ```json
@@ -110,13 +110,13 @@ Puedes probar los endpoints de la API usando herramientas como [Soap UI](https:/
         }
         ```
 
-- **Listar Tópicos**:
+- **<p id="listar">Listar Tópicos:</p>**:
     - **GET** `/topicos`
 
-- **Detalle de un Tópico**:
+- **<p id="detalle">Detalle de un Tópico:</p>**:
     - **GET** `/topicos/{id}`
 
-- **Actualizar un Tópico**:
+- **<p id="actualizar">Actualizar un Tópico:</p>**:
     - **PUT** `/topicos/{id}`
     - **Body**:
         ```json
@@ -128,5 +128,5 @@ Puedes probar los endpoints de la API usando herramientas como [Soap UI](https:/
         }
         ```
 
-- **Eliminar un Tópico**:
+- **<p id="eliminar">Eliminar un Tópico:</p>**:
     - **DELETE** `/topicos/{id}`
