@@ -96,6 +96,7 @@ api.security.secret=${JWT_SECRET:123456}
 
 Una vez que la aplicación esté en ejecución, puedes interactuar con la API a través de los siguientes endpoints:
 
+- [**POST**](#token) `/api/LOGIN` : Obtener nuevo token
 - **<a href="#gestion">POST</a>** `/api/topics`: Crear un nuevo tópico.
 - **<a href="#listar">GET</a>** `/api/topics`: Listar todos los tópicos.
 - **<a href="#detalle">GET</a>** `/api/topics/{id}`: Obtener los detalles de un tópico por ID.
@@ -123,6 +124,12 @@ Puedes probar los endpoints de la API usando herramientas como [insomnia](https:
 
 ### Ejemplos de Endpoints
 
+- **<p id="token">generar token:</p>**
+    - **GET** `/login`
+    - **No nesecita token**
+
+        <p><img width="auto" height="auto" src="img/autentificar.png"></p>
+
 - **<p id="gestion">Registrar un Tópico:</p>**
     - **POST** `/topicos`
     - **Body**
@@ -132,7 +139,6 @@ Puedes probar los endpoints de la API usando herramientas como [insomnia](https:
         {
             "titulo": "Título del Tópico",
             "mensaje": "Mensaje del Tópico",
-            "autor": "Autor del Tópico"
         }
         ```
         <p><img width="auto" height="auto" src="img/registrar_topico.png"></p>
