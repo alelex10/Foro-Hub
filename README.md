@@ -14,7 +14,6 @@ ForoHub es una aplicación web desarrollada en Java utilizando Spring Boot, crea
 - **Persistencia de datos:** Utiliza PostgreSQL para almacenar datos.
 - **Migraciones de base de datos:** Flyway para gestionar cambios en el esquema de la base de datos.
 - **Validación de datos:** Asegura la calidad de los datos mediante validaciones.
-- **Documentación de API:** Swagger UI para explorar y probar los endpoints de la API.
 
 ## Tecnologías
 
@@ -31,7 +30,7 @@ El proyecto está organizado en los siguientes paquetes principales:
 
 - **config**: Configuraciones de Spring Boot, incluyendo la configuración de seguridad.
 - **controller**: Controladores REST que gestionan las solicitudes de la API.
-- **model**: Clases de modelo que representan las entidades de la base de datos.
+- **Domain**: Clases de modelo que representan las entidades de la base de datos.
 - **repository**: Repositorios para acceder a los datos en la base de datos.
 - **service**: Lógica de negocio de la aplicación.
 - **dto**: Clases de transferencia de datos (DTO) para las solicitudes y respuestas de la API.
