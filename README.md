@@ -110,13 +110,13 @@ Puedes probar los endpoints de la API usando herramientas como [Soap UI](https:/
         }
         ```
 
-- **<p id="listar">Listar Tópicos:</p>**:
+- **<p id="listar">Listar Tópicos:</p>**
     - **GET** `/topicos`
 
-- **<p id="detalle">Detalle de un Tópico:</p>**:
+- **<p id="detalle">Detalle de un Tópico:</p>**
     - **GET** `/topicos/{id}`
 
-- **<p id="actualizar">Actualizar un Tópico:</p>**:
+- **<p id="actualizar">Actualizar un Tópico:</p>**
     - **PUT** `/topicos/{id}`
     - **Body**:
         ```json
@@ -128,5 +128,5 @@ Puedes probar los endpoints de la API usando herramientas como [Soap UI](https:/
         }
         ```
 
-- **<p id="eliminar">Eliminar un Tópico:</p>**:
+- **<p id="eliminar">Eliminar un Tópico:</p>**
     - **DELETE** `/topicos/{id}`
