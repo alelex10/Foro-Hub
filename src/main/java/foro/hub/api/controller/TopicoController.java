@@ -1,6 +1,8 @@
 package foro.hub.api.controller;
 
 import foro.hub.api.domain.topico.*;
+import foro.hub.api.infra.security.TokenService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import foro.hub.api.domain.topico.*;
@@ -20,17 +22,22 @@ public class TopicoController {
 
     @Autowired
     private TopicoRepository topicoRepository;
+    @Autowired
+    private TokenService tokenService;
 
     @PostMapping
     public ResponseEntity<DatosRespuestaTopico> registrarTopico(
             @RequestBody @Valid DatosRegistroTopico datosRegistroTopico,
-            UriComponentsBuilder uriComponentsBuilder) {
-        Topico topico = topicoRepository.save(new Topico(datosRegistroTopico));
+            UriComponentsBuilder uriComponentsBuilder,
+            HttpServletRequest request) {
+        var token = request.getHeader("Authorization")
+                .replace("Bearer ", "");
+        String nombreUsuario = tokenService.getSubject(token);
+        Topico topico = topicoRepository.save(new Topico(datosRegistroTopico, nombreUsuario));
         DatosRespuestaTopico datosRespuestaTopico = new DatosRespuestaTopico(topico);
         URI url = uriComponentsBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri();
         System.out.println(url);
         return ResponseEntity.created(url).body(datosRespuestaTopico);
-
     }
 
     @GetMapping

@@ -22,10 +22,11 @@ public class Topico {
     private String titulo;
     private String mensaje;
     private LocalDateTime fechaCreacion;
-
+    private String usuario;
     private Boolean activo;
 
-    public Topico(DatosRegistroTopico datosRegistroTopico) {
+    public Topico(DatosRegistroTopico datosRegistroTopico,String usuario) {
+        this.usuario = usuario;
         this.activo = true;
         this.titulo = datosRegistroTopico.titulo();
         this.mensaje = datosRegistroTopico.mensaje();

@@ -91,29 +91,45 @@ Una vez que la aplicación esté en ejecución, puedes interactuar con la API a 
 - **<a href="#actualizar">PUT</a>** `/api/topics/{id}`: Actualizar un tópico existente.
 - **<a href="#eliminar">DELETE</a>** `/api/topics/{id}`: Eliminar un tópico por ID.
 
+### Crear usuario
+- Al ejecutar el proyecto se isertara un usuario default en la tabla usuarios
+- Puedes generar la clave encriptada en [Bcrypt Password Generator](https://www.browserling.com/tools/bcrypt)
+<img src="img/Bcrypt.png" alt="">
+- Crear usuario insertando 
+```sql
+INSERT INTO `foro_hub`.`usuarios` (`login`, `clave`) 
+VALUES ('usuario', '$2a$10$2D3sdA7stXshVxFGLe.q0uUfmsmmrZAl472mn..Aj7qfMFhvrpi8i');
+```
 ## Comandos para Probar la API
 
-Puedes probar los endpoints de la API usando herramientas como [Soap UI](https://www.soapui.org/) o [Postman](https://www.postman.com/).
+Puedes probar los endpoints de la API usando herramientas como [insomnia](https://insomnia.rest/) o [Postman](https://www.postman.com/).
 
 ### Ejemplos de Endpoints
 
 - **<p id="gestion">Registrar un Tópico:</p>**
     - **POST** `/topicos`
-    - **Body**:
+    - **Body**
+    - **Nesecita token**
+
         ```json
         {
             "titulo": "Título del Tópico",
             "mensaje": "Mensaje del Tópico",
-            "autor": "Autor del Tópico",
-            "curso": "Curso del Tópico"
+            "autor": "Autor del Tópico"
         }
         ```
-<img width="auto" height="auto" src="img/registrar_topico.png">
+        <p><img width="auto" height="auto" src="img/registrar_topico.png"></p>
+        
+
 - **<p id="listar">Listar Tópicos:</p>**
     - **GET** `/topicos`
+    - **No nesecita token**
+
+        <p><img width="auto" height="auto" src="img/listar_topicos.png"></p>
 
 - **<p id="detalle">Detalle de un Tópico:</p>**
     - **GET** `/topicos/{id}`
+    - **No nesecita token**
 
 - **<p id="actualizar">Actualizar un Tópico:</p>**
     - **PUT** `/topicos/{id}`
@@ -121,9 +137,7 @@ Puedes probar los endpoints de la API usando herramientas como [Soap UI](https:/
         ```json
         {
             "titulo": "Nuevo Título del Tópico",
-            "mensaje": "Nuevo Mensaje del Tópico",
-            "autor": "Nuevo Autor del Tópico",
-            "curso": "Nuevo Curso del Tópico"
+            "mensaje": "Nuevo Mensaje del Tópico"
         }
         ```
 
