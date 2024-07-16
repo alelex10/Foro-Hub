@@ -1,8 +1,4 @@
 
-<p align="center">
-  	<img width="auto" height="auto" src="img/Badge_ForoHub_ONE.png">
-</p>
-
 # ForoHub - Alura Challenge
 
 ForoHub es una aplicación web desarrollada en Java utilizando Spring Boot, creada para gestionar tópicos en un foro. Esta solución fue diseñada como respuesta al cuarto desafío de programación de Oracle Next Generation (ONE) de Alura. ForoHub permite a los usuarios autenticados realizar operaciones como crear, listar, actualizar y eliminar tópicos. La aplicación utiliza MySQL como sistema de gestión de bases de datos y sigue las mejores prácticas para el desarrollo de APIs REST.
@@ -44,7 +40,14 @@ Para gestionar las migraciones de base de datos, Flyway se encarga de aplicar lo
 
 ## Autenticación
 
-La API utiliza autenticación básica para proteger los endpoints. Asegúrate de enviar un encabezado `Authorization` con las credenciales en formato `Basic` para acceder a los recursos de la API.
+- La API utiliza autenticación básica para proteger los endpoints. Asegúrate de enviar un encabezado `Authorization` con las credenciales en formato `Basic` para acceder a los recursos de la API.
+
+## Autorización
+
+- La API utiliza utiliza un variable de entorno para validar la firma de la autorizacion que se puede cambiar en `src/main/resources/application.properties`
+```
+api.security.secret=${JWT_SECRET:123456}
+```
 
 ## Instalación
 
@@ -52,34 +55,42 @@ La API utiliza autenticación básica para proteger los endpoints. Asegúrate de
 
    ```bash
    git clone https://github.com/tu_usuario/forohub.git
-   cd forohub
    ```
 
-2. **Configurar PostgreSQL:**
+2. **Configurar MySQL:**
 
-   Crea una base de datos en PostgreSQL y actualiza el archivo `src/main/resources/application.properties` con los detalles de tu base de datos y reemplaza `tu_usuario` y `tu_contraseña` con tus credenciales de PostgreSQL.
+   Crea una base de datos en Posgrest y actualiza el archivo `src/main/resources/application.properties` con los detalles de tu base de datos y reemplaza `tu_usuario` y `tu_contraseña` con tus credenciales de Posgrest.
 
    ```properties
-   spring.datasource.url=jdbc:postgresql://localhost:3306/foro_hub
+   spring.datasource.url=jdbc:mysql://localhost/foro_hub
    spring.datasource.username=tu_usuario
    spring.datasource.password=tu_contraseña
    ```
 
-3. **Ejecutar Migraciones:**
+[//]: # (3. **Ejecutar Migraciones:**)
 
-   Asegúrate de que las migraciones están aplicadas. Puedes ejecutar las migraciones con:
+[//]: # ()
+[//]: # (   Asegúrate de que las migraciones están aplicadas. Puedes ejecutar las migraciones con:)
 
-   ```bash
-   mvn flyway:migrate
-   ```
+[//]: # ()
+[//]: # (   ```bash)
 
-4. **Ejecutar la Aplicación:**
+[//]: # (   mvn flyway:migrate)
 
-   Inicia la aplicación con el siguiente comando:
+[//]: # (   ```)
 
-   ```bash
-   mvn spring-boot:run
-   ```
+[//]: # ()
+[//]: # (4. **Ejecutar la Aplicación:**)
+
+[//]: # ()
+[//]: # (   Inicia la aplicación con el siguiente comando:)
+
+[//]: # ()
+[//]: # (   ```bash)
+
+[//]: # (   mvn spring-boot:run)
+
+[//]: # (   ```)
 
 ## Uso
 
@@ -92,13 +103,19 @@ Una vez que la aplicación esté en ejecución, puedes interactuar con la API a 
 - **<a href="#eliminar">DELETE</a>** `/api/topics/{id}`: Eliminar un tópico por ID.
 
 ### Crear usuario
-- Al ejecutar el proyecto se isertara un usuario default en la tabla usuarios
+- Al ejecutar el proyecto se creará un usuario default en la tabla usuarios:
+```json
+{
+	"login":"usuario",
+	"clave":"password"
+}
+```
 - Puedes generar la clave encriptada en [Bcrypt Password Generator](https://www.browserling.com/tools/bcrypt)
 <img src="img/Bcrypt.png" alt="">
-- Crear usuario insertando 
+- Crear usuario creando un archivo nuevo en db.migration "V6__alter-table-usuarios-insert-login-clave.sql"
 ```sql
-INSERT INTO `foro_hub`.`usuarios` (`login`, `clave`) 
-VALUES ('usuario', '$2a$10$2D3sdA7stXshVxFGLe.q0uUfmsmmrZAl472mn..Aj7qfMFhvrpi8i');
+INSERT INTO `base_datos`.`usuarios` (`login`, `clave`) 
+VALUES ('usuario', 'clave encriptada');
 ```
 ## Comandos para Probar la API
 
@@ -131,15 +148,22 @@ Puedes probar los endpoints de la API usando herramientas como [insomnia](https:
     - **GET** `/topicos/{id}`
     - **No nesecita token**
 
+<p><img width="auto" height="auto" src="img/obtener_topico.png"></p>
+
 - **<p id="actualizar">Actualizar un Tópico:</p>**
     - **PUT** `/topicos/{id}`
     - **Body**:
+    - **Nesecita token**
         ```json
         {
+            "id": "<id>",
             "titulo": "Nuevo Título del Tópico",
             "mensaje": "Nuevo Mensaje del Tópico"
         }
         ```
+<p><img width="auto" height="auto" src="img/actualizar_topico.png"></p>
 
 - **<p id="eliminar">Eliminar un Tópico:</p>**
-    - **DELETE** `/topicos/{id}`
+- **DELETE** `/topicos/{id}`
+- **Nesecita token**
+<p><img width="auto" height="auto" src="img/eliminar_topico.png"></p>
